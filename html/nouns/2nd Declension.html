@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<!-- ..head............................................................ -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Abril Insaurralde">
+    <meta name="description:" content="This website helps Latin students study their grammar and culture">
+
+    <link rel="stylesheet" href="/Users/abri11nsaurralde/Library/Mobile Documents/com~apple~CloudDocs/latin website/css/indexStyle.css">
+    <!-- ..header.......-->
+
+    <header>
+      <title>Latin Website</title>
+      <!-- title mark -->
+      <div>
+       <img src="/Users/abri11nsaurralde/Library/Mobile Documents/com~apple~CloudDocs/latin website/example heading.png" alt="title image" ID="title-photo" width="300">
+       <h1 ID="graffiti">Latin Study Corner</h1>
+     </div>
+      <!-- navigation tab -->
+      <nav>
+          <ul>
+  <li><div class="dropdown">
+  <button class="dropbtn">verbs</button>
+  <div class="dropdown-content">
+    <a href="/Users/abri11nsaurralde/Library/Mobile Documents/com~apple~CloudDocs/latin website/html/verbs/1st and 2nd.html">First and Second Conjugation Verbs</a>
+    <a href="/Users/abri11nsaurralde/Library/Mobile Documents/com~apple~CloudDocs/latin website/html/verbs/3rd verbs.html">Third Conjugation Verbs</a>
+    <a href="/Users/abri11nsaurralde/Library/Mobile Documents/com~apple~CloudDocs/latin website/html/verbs/3rd-io and 4th.html">Third -io and Fourth Conjugation Verbs</a>
+  </div>
+</div></li>
+  <li><div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div></li>
+  <li><div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div></li>
+  <li><div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div></li>
+
+        </ul>
+
+      </nav>
+
+    </header>
+  </head>
+  <body>
+
+<br>
+<br>
+<h3 id="instructions">Decline: </h3>
+<br>
+<hr>
+<hr>
+
+<div ID="one-chart">
+  <table class="chart">
+    <th class="table-header"></th>
+    <th class="table-header">1st</th>
+    <tr>
+      <th> nom </th> <!-- input:--> <td> <input id="oneChart0" type="text"/> </td>
+    </tr>
+    <tr>
+      <th> acc </th> <!-- input:--> <td> <input id="oneChart1" type="text"/> </td>
+    </tr>
+    <tr>
+      <th> abl </th> <!-- input:--> <td> <input id="oneChart2" type="text"/> </td>
+    </tr>
+    <tr>
+      <th> dat </th> <!-- input:--> <td> <input id="oneChart3" type="text"/> </td>
+    </tr>
+    <tr>
+      <th> gen </th> <!-- input:--> <td> <input id="oneChart4" type="text"/> </td>
+    </tr>
+    <tr> <td> <hr> </td> </tr>
+    <tr>
+      <th> nom </th> <!-- input:--> <td> <input id="oneChart5" type="text"/> </td>
+    </tr>
+    <tr>
+      <th> acc </th> <!-- input:--> <td> <input id="oneChart6" type="text"/> </td>
+    </tr>
+    <tr>
+      <th> abl </th> <!-- input:--> <td> <input id="oneChart7" type="text"/> </td>
+    </tr>
+    <tr>
+      <th> dat </th> <!-- input:--> <td> <input id="oneChart8" type="text"/> </td>
+    </tr>
+    <tr>
+      <th> gen </th> <!-- input:--> <td> <input id="oneChart9" type="text"/> </td>
+    </tr>
+  </table>
+</div>
+
+
+  <button class="submit-button" id="oneChart" data-kind="secondDeclension" onclick="getId(this); refreshChart(this);" type="button">New Entry</button>
+  <input class="submit-button" id="oneChart" data-kind="secondDeclension" onclick="getId(this); submitChart(this);" type="submit"/>
+
+    <!-- ////////////////////////////////////////////////////////////////// -->
+    <script src = "/Users/abri11nsaurralde/Library/Mobile Documents/com~apple~CloudDocs/latin website/js/charts.js"> </script>
+    <script src = "/Users/abri11nsaurralde/Library/Mobile Documents/com~apple~CloudDocs/latin website/js/navigation.js"> </script>
+    </body>
+    </html>
