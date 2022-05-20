@@ -21,8 +21,6 @@ var entry = [];
 var gender = [];
 
 var firstDeclensionEntry = []
-var declensionRemoveOne;
-var declensionRemoveTwo;
 
 // verb variables
 
