@@ -88,6 +88,25 @@ function submitChart(){
         }
       }
       break;
+    case "personalChart":
+    length = 50;
+    input = [];
+    personalEntry = ["is", "eum", "eo", "ei", "eius", "ei/ii", "eos", "eis", "eis", "eorum", "ea", "eam", "ea", "ei", "eius", "eae", "eas", "eibus" "id", "id", "eo", "ei", "eius", "ea", "ea", "eis", "eis", "earum", "quae", "quae", "quibus", "quibus", "quorum"];
+
+    for (var i = 0; i < length; i++) {
+      var currentID = id + i;
+      var inputElement = document.getElementById(currentID);
+      input.push(document.getElementById(currentID).value);
+
+      if (kind == "quiQuaeQuod"){
+        if (quiQuaeQuodEntry[i] == input[i]) {
+          inputElement.style.backgroundColor = correctColor;
+        } else {
+          inputElement.style.backgroundColor = incorrectColor;
+        }
+      }
+    }
+      break;
 
     case "oneChart":
       length = 10;
