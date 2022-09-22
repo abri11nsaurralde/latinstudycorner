@@ -4,6 +4,10 @@ var kind;
 
 var random;
 
+// triple chart pronouns
+var quiQuaeQuodEntry = [];
+
+
 // noun variables
 
 
@@ -65,9 +69,26 @@ function submitChart(){
   switch (id) {
     case "threeChart":
       length = 30;
+      input = [];
+      if (kind == "quiQuaeQuod") {
+        quiQuaeQuodEntry = ["qui", "quem", "quo", "cui", "cuius", "qui", "quos", "quibus", "quibus", "quorum", "quae", "quam", "qua", "cui", "cuius", "qua", "quas", "quibus", "quibus", "quarum", "quod", "quod", "qui", "cui", "cuius", "quae", "quae", "quibus", "quibus", "quorum"];
+      }
+
+      for (var i = 0; i < length; i++) {
+        var currentID = id + i;
+        var inputElement = document.getElementById(currentID);
+        input.push(document.getElementById(currentID).value);
+
+        if (kind == "quiQuaeQuod"){
+          if (quiQuaeQuodEntry[i] == input[i]) {
+            inputElement.style.backgroundColor = correctColor;
+          } else {
+            inputElement.style.backgroundColor = incorrectColor;
+          }
+        }
+      }
       break;
 
-// --------------------- current --------------------------
     case "oneChart":
       length = 10;
       input = [];
