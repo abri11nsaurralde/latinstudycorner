@@ -54,11 +54,12 @@
 <br>
 <br>
 <h1>First and Second Conjugation </h1>
+  <button class="submit-button" id="verbChart" data-kind="firststandsecondndverbs" onclick="getId(this); handwritingToggle(this);" type="button">Handwriting Mode</button>
 <br>
 <h3 id="instructions">Conjugate: </h3>
 <br>
 
-<div class="grid-container">
+<div class="grid-container" id="chart">
     <div class="verb-chart" mood="active">
 
       <table class="chart">
@@ -253,11 +254,17 @@
     </div>
   </div>
 
+<div id="handwritingChart">
+  <button class="submit-button" id="verbChart" data-kind="firststandsecondndverbs" onclick="getId(this); refreshChart(this);" type="button" style="display: none;">Show Chart</button>
+
+</div>
+
   <button class="submit-button" id="verbChart" data-kind="firststandsecondndverbs" onclick="getId(this); refreshChart(this);" type="button">New Entry</button>
   <input class="submit-button" id="verbChart" data-kind="firststandsecondndverbs" onclick="getId(this); submitChart(this);" type="submit"/>
 
     <!-- ////////////////////////////////////////////////////////////////// -->
     <script src = "charts.js"> </script>
+    <script src = "chartModes.js"> </script>
     <script src = "navigation.js"> </script>
-    </body>
+</body>
     </html>

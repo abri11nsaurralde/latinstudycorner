@@ -1,4 +1,3 @@
-// single chart pronouns
 var id;
 var kind;
 
@@ -9,8 +8,6 @@ var quiQuaeQuodEntry = [];
 
 
 // noun variables
-
-
 var nounEntry = [];
 var nounFirstEntry = [];
 var nounSecondEntry = [];
@@ -55,6 +52,7 @@ var input = [];
 var answer = [];
 var length;
 
+// what does this do???????
 function getId(btn) {
   id = btn.id;
   var article = document.getElementById(id);
@@ -91,15 +89,15 @@ function submitChart(){
     case "personalChart":
     length = 50;
     input = [];
-    personalEntry = ["is", "eum", "eo", "ei", "eius", "ei/ii", "eos", "eis", "eis", "eorum", "ea", "eam", "ea", "ei", "eius", "eae", "eas", "eibus" "id", "id", "eo", "ei", "eius", "ea", "ea", "eis", "eis", "earum", "quae", "quae", "quibus", "quibus", "quorum"];
+    personalEntry = ["is", "eum", "eo", "ei", "eius", "ei/ii", "eos", "eis", "eis", "eorum", "ea", "eam", "ea", "ei", "eius", "eae", "eas", "eis", "eis", "earum", "id", "id", "eo", "ei", "eius", "ea", "ea", "eis", "eis", "earum", "quae", "quae", "quibus", "quibus", "quorum"];
 
     for (var i = 0; i < length; i++) {
       var currentID = id + i;
       var inputElement = document.getElementById(currentID);
       input.push(document.getElementById(currentID).value);
 
-      if (kind == "quiQuaeQuod"){
-        if (quiQuaeQuodEntry[i] == input[i]) {
+      if (kind == "personal"){
+        if (personal[i] == input[i]) {
           inputElement.style.backgroundColor = correctColor;
         } else {
           inputElement.style.backgroundColor = incorrectColor;
@@ -107,7 +105,6 @@ function submitChart(){
       }
     }
       break;
-
     case "oneChart":
       length = 10;
       input = [];
