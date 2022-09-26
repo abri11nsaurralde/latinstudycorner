@@ -72,6 +72,8 @@ function submitChart(){
         quiQuaeQuodEntry = ["qui", "quem", "quo", "cui", "cuius", "qui", "quos", "quibus", "quibus", "quorum", "quae", "quam", "qua", "cui", "cuius", "qua", "quas", "quibus", "quibus", "quarum", "quod", "quod", "qui", "cui", "cuius", "quae", "quae", "quibus", "quibus", "quorum"];
       }
 
+      //make this more verstitile
+
       for (var i = 0; i < length; i++) {
         var currentID = id + i;
         var inputElement = document.getElementById(currentID);
