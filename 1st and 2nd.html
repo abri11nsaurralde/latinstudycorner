@@ -254,13 +254,204 @@
     </div>
   </div>
 
-<div id="handwritingChart">
-  <button class="submit-button" id="verbChart" data-kind="firststandsecondndverbs" onclick="getId(this); refreshChart(this);" type="button" style="display: none;">Show Chart</button>
+<div id="handwritingChart" style="display: none">
+  <div class="verb-chart" mood="active">
+
+    <table class="chart">
+      <tr> <th class="table-header" colspan="4"> active imperfect </th> </tr>
+      <th>
+        <td class="table-header">past</td>
+        <td class="table-header">pres</td>
+        <td class="table-header">fut</td>
+      </th>
+      <tr>
+        <th> 1st </th> <!--1st past sg -->
+        <td id="verbChartactImpHand6" type="text"/> </td> <!-- past -->
+        <td id="verbChartactImpHand0" type="text"/> </td> <!-- pres -->
+        <td id="verbChartactImpHand12" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 2nd </th>
+        <td id="verbChartactImpHand7" type="text"/> </td> <!-- past -->
+        <td id="verbChartactImpHand1" type="text"/> </td> <!-- pres -->
+        <td id="verbChartactImpHand13" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 3rd </th>
+        <td id="verbChartactImpHand8" type="text"/> </td> <!-- past -->
+        <td id="verbChartactImpHand2" type="text"/> </td> <!-- pres -->
+        <td id="verbChartactImpHand14" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr> <td> <hr> </td> </tr>
+      <tr>
+        <th> 1st </th>
+        <td id="verbChartactImpHand9" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartactImpHand3" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartactImpHand15" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 2nd </th>
+        <td id="verbChartactImpHand10" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartactImpHand4" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartactImpHand16" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 3rd </th>
+        <td id="verbChartactImpHand11" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartactImpHand5" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartactImpHand17" type="text"/> </td> <!-- fut -->
+      </tr>
+    </table>
+  </div>
+
+  <div class="verb-chart" mood="active">
+    <table class="chart">
+      <tr> <th class="table-header" colspan="4"> active perfect </th> </tr>
+      <th>
+        <td class="table-header">past</td>
+        <td class="table-header">pres</td>
+        <td class="table-header">fut</td>
+      </th>
+      <tr>
+        <th> 1st </th> <!--1st past sg -->
+        <td id="verbChartactPerfHand6" type="text"/> </td> <!-- past -->
+        <td id="verbChartactPerfHand0" type="text"/> </td> <!-- pres -->
+        <td id="verbChartactPerfHand12" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 2nd </th>
+        <td id="verbChartactPerfHand7" type="text"/> </td> <!-- past -->
+        <td id="verbChartactPerfHand1" type="text"/> </td> <!-- pres -->
+        <td id="verbChartactPerfHand13" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 3rd </th>
+        <td id="verbChartactPerfHand8" type="text"/> </td> <!-- past -->
+        <td id="verbChartactPerfHand2" type="text"/> </td> <!-- pres -->
+        <td id="verbChartactPerfHand14" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr> <td> <hr> </td> </tr>
+      <tr>
+        <th> 1st </th>
+        <td id="verbChartactPerfHand9" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartactPerfHand3" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartactPerfHand15" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 2nd </th>
+        <td id="verbChartactPerfHand10" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartactPerfHand4" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartactPerfHand16" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 3rd </th>
+        <td id="verbChartactPerfHand11" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartactPerfHand5" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartactPerfHand17" type="text"/> </td> <!-- fut -->
+      </tr>
+    </table>
+  </div>
+
+  <div class="verb-chart" mood="passive">
+    <table class="chart">
+      <tr> <th class="table-header" colspan="4"> passive imperfect </th> </tr>
+      <th>
+        <td class="table-header">past</td>
+        <td class="table-header">pres</td>
+        <td class="table-header">fut</td>
+      </th>
+      <tr>
+        <th> 1st </th> <!--1st past sg -->
+        <td id="verbChartpassImpHand6" type="text"/> </td> <!-- past -->
+        <td id="verbChartpassImpHand0" type="text"/> </td> <!-- pres -->
+        <td id="verbChartpassImpHand12" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 2nd </th>
+        <td id="verbChartpassImpHand7" type="text"/> </td> <!-- past -->
+        <td id="verbChartpassImpHand1" type="text"/> </td> <!-- pres -->
+        <td id="verbChartpassImpHand13" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 3rd </th>
+        <td id="verbChartpassImpHand8" type="text"/> </td> <!-- past -->
+        <td id="verbChartpassImpHand2" type="text"/> </td> <!-- pres -->
+        <td id="verbChartpassImpHand14" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr> <td> <hr> </td> </tr>
+      <tr>
+        <th> 1st </th>
+        <td id="verbChartpassImpHand9" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartpassImpHand3" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartpassImpHand15" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 2nd </th>
+        <td id="verbChartpassImpHand10" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartpassImpHand4" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartpassImpHand16" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 3rd </th>
+        <td id="verbChartpassImpHand11" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartpassImpHand5" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartpassImpHand17" type="text"/> </td> <!-- fut -->
+      </tr>
+    </table>
+  </div>
+
+  <div class="verb-chart" mood="passive">
+    <table class="chart">
+      <tr> <th class="table-header" colspan="4"> passive perfect </th> </tr>
+      <th>
+        <td class="table-header">past</td>
+        <td class="table-header">pres</td>
+        <td class="table-header">fut</td>
+      </th>
+      <tr>
+        <th> 1st </th> <!--1st past sg -->
+        <td id="verbChartpassPerfHand6" type="text"/> </td> <!-- ppassPerf -->
+        <td id="verbChartpassPerfHand0" type="text"/> </td> <!-- pres -->
+        <td id="verbChartpassPerfHand12" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 2nd </th>
+        <td id="verbChartpassPerfHand7" type="text"/> </td> <!-- past -->
+        <td id="verbChartpassPerfHand1" type="text"/> </td> <!-- pres -->
+        <td id="verbChartpassPerfHand13" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 3rd </th>
+        <td id="verbChartpassPerfHand8" type="text"/> </td> <!-- past -->
+        <td id="verbChartpassPerfHand2" type="text"/> </td> <!-- pres -->
+        <td id="verbChartpassPerfHand14" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr> <td> <hr> </td> </tr>
+      <tr>
+        <th> 1st </th>
+        <td id="verbChartpassPerfHand9" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartpassPerfHand3" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartpassPerfHand15" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 2nd </th>
+        <td id="verbChartpassPerfHand10" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartpassPerfHand4" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartpassPerfHand16" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 3rd </th>
+        <td id="verbChartpassPerfHand11" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartpassPerfHand5" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartpassPerfHand17" type="text"/> </td> <!-- fut -->
+      </tr>
+    </table>
+  </div>
 
 </div>
 
-  <button class="submit-button" id="verbChart" data-kind="firststandsecondndverbs" onclick="getId(this); refreshChart(this);" type="button">New Entry</button>
-  <input class="submit-button" id="verbChart" data-kind="firststandsecondndverbs" onclick="getId(this); submitChart(this);" type="submit"/>
+  <button class="submit-button" class="verbChart" data-kind="firststandsecondndverbs" data-chart="verbChart" onclick="getId(this); refreshChart(this);" type="button">New Entry</button>
+  <button class="submit-button" id="submit" data-kind="firststandsecondndverbs" data-chart="verbChart" onclick="getId(this); submitChart(this);" type="button">Submit</button>
 
     <!-- ////////////////////////////////////////////////////////////////// -->
     <script src = "charts.js"> </script>

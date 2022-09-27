@@ -52,9 +52,9 @@ var input = [];
 var answer = [];
 var length;
 
-// what does this do???????
+// gets the kind of page the button belongs to; ex: kind="verbChart"
 function getId(btn) {
-  id = btn.id;
+  id = btn.dataset.chart;
   var article = document.getElementById(id);
   kind = btn.dataset.kind;
 }
@@ -292,91 +292,130 @@ function submitChart(){
             var currentID = id + currentAspectAndVoice + h;
             var inputElement = document.getElementById(currentID);
             input.push(document.getElementById(currentID).value);
+            var currentHandID = id + currentAspectAndVoice + "Hand" + h;
 
-            if (i == 0){ // creating answer list for first chart, the active imperfects
-               if (h == 0){
-                 if (firstEntry[random] == input[h] || firstEntry[random] + " " == input[h]){
-                   inputElement.style.backgroundColor = correctColor;
+            // checks the typing chart, but only if thats the mode the user has selected
+            if (document.getElementById("submit").innerText == "Submit") { //checks if typing mode is on based on if the submit button says "submit" or "show chart"
+              if (i == 0){ // creating answer list for first chart, the active imperfects
+                 if (h == 0){
+                   if (firstEntry[random] == input[h] || firstEntry[random] + " " == input[h]){
+                     inputElement.style.backgroundColor = correctColor;
 
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
                  } else {
-                   inputElement.style.backgroundColor = incorrectColor;
+                   if (secondEntryRoot + endingsActImps[h] == input[h] || secondEntryRoot + endingsActImps[h] + " " == input[h]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 }
+
+               } else if (i == 1){
+                 if (h == 0) {
+                   if (thirdEntryRandom == input[h + 18]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 } else {
+                   if (thirdEntryRoot + endingsActPerf[h] == input[h + 18] || thirdEntryRoot + endingsActPerf[h] + " " == input[h + 18]){
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 }
+               } else if (i == 2) {
+                 if (h == 0) {
+                   if (firstEntry[random] + "r" == input[h + 36] || firstEntry[random] + "r" + " " == input[h + 36]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 } else if (h < 18) {
+                   if (secondEntryRoot + endingsPassImp[h] == input[h + 36] || secondEntryRoot + endingsPassImp[h] + " " == input[h + 36]){
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
                  }
                } else {
-                 if (secondEntryRoot + endingsActImps[h] == input[h] || secondEntryRoot + endingsActImps[h] + " " == input[h]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
+                 if (h < 3) {
+                   if (fourthEntryRoot + "us " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 } else if (h < 6) {
+                   if (fourthEntryRoot + "i " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                 }
+                 } else if (h < 9) {
+                   if (fourthEntryRoot + "us " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 } else if (h < 12) {
+                   if (fourthEntryRoot + "i " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                 }
+                 } else if (h < 15) {
+                   if (fourthEntryRoot + "us " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 } else if (h < 18) {
+                   if (fourthEntryRoot + "i " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
                  }
                }
+            }
 
-             } else if (i == 1){
-               if (h == 0) {
-                 if (thirdEntryRandom == input[h + 18]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               } else {
-                 if (thirdEntryRoot + endingsActPerf[h] == input[h + 18] || thirdEntryRoot + endingsActPerf[h] + " " == input[h + 18]){
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               }
-             } else if (i == 2) {
-               if (h == 0) {
-                 if (firstEntry[random] + "r" == input[h + 36] || firstEntry[random] + "r" + " " == input[h + 36]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               } else if (h < 18) {
-                 if (secondEntryRoot + endingsPassImp[h] == input[h + 36] || secondEntryRoot + endingsPassImp[h] + " " == input[h + 36]){
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               }
-             } else {
-               if (h < 3) {
-                 if (fourthEntryRoot + "us " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               } else if (h < 6) {
-                 if (fourthEntryRoot + "i " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-               }
-               } else if (h < 9) {
-                 if (fourthEntryRoot + "us " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               } else if (h < 12) {
-                 if (fourthEntryRoot + "i " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-               }
-               } else if (h < 15) {
-                 if (fourthEntryRoot + "us " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               } else if (h < 18) {
-                 if (fourthEntryRoot + "i " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               }
-             }
-
+             // fill in the handwriting chart
+             var handwritingFillIn = [];
+             if (i == 0){
+                if (h == 0){
+                  document.getElementById(currentHandID).innerText = firstEntry[random];
+                } else {
+                  document.getElementById(currentHandID).innerText = secondEntryRoot + endingsActImps[h];
+                }
+              } else if (i == 1) {
+                  if (h == 0) {
+                  document.getElementById(currentHandID).innerText = thirdEntryRandom;
+                  } else {
+                  document.getElementById(currentHandID).innerText = thirdEntryRoot + endingsActPerf[h];
+                  }
+              } else if (i == 2) {
+                if (h == 0) {
+                  document.getElementById(currentHandID).innerText = firstEntry[random] + "r";
+                } else if (h < 18) {
+                  document.getElementById(currentHandID).innerText = secondEntryRoot + endingsPassImp[h];
+                }
+              } else {
+                  if (h < 3) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "us, a, um " + endingsPassPerf[h];
+                  } else if (h < 6) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "i, ae, a " + endingsPassPerf[h];
+                  } else if (h < 9) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "us, a, um " + endingsPassPerf[h];
+                  } else if (h < 12) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "i, ae, a " + endingsPassPerf[h];
+                  } else if (h < 15) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "us, a, um " + endingsPassPerf[h];
+                  } else if (h < 18) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "i, ae, a " + endingsPassPerf[h];
+                  }
+                }
           }
       }
       break;
