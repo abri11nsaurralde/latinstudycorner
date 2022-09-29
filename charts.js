@@ -473,8 +473,11 @@ function refreshChart(){
         var currentAspectAndVoice = aspectAndVoice[i];
         for (var h = 0; h < length; h++){
           var currentID = id + currentAspectAndVoice + h;
+          var currentHandID = id + currentAspectAndVoice + "Hand" + h;
           inputElement = document.getElementById(currentID);
           inputElement.style.backgroundColor = blankColor;
+          document.getElementById(currentHandID).innerText = "";
+          document.getElementById(currentID).value = "";
         }
       }
 
