@@ -147,94 +147,144 @@ function submitChart(){
         var currentID = id + i;
         var inputElement = document.getElementById(currentID);
         input.push(document.getElementById(currentID).value);
+        var currentHandID = id + "Hand" + i;
 
-        if (kind == "firstDeclension") {
-          if (nounEntryRoot + nounEndingsFeminine[i] == input[i]) {
-            inputElement.style.backgroundColor = correctColor;
-          } else {
-            inputElement.style.backgroundColor = incorrectColor;
-          }
-        } else if (kind == "secondDeclension"){
-          if (gender[random] == "masculine"){
-            if (i == 0){
-              if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
+        // checks the typing chart, but only if thats the mode the user has selected
+      if (document.getElementById("submit").innerText == "Submit") { //checks if typing mode is on based on if the submit button says "submit" or "show chart"
+          if (kind == "firstDeclension") {
+            if (nounEntryRoot + nounEndingsFeminine[i] == input[i]) {
+              inputElement.style.backgroundColor = correctColor;
             } else {
+              inputElement.style.backgroundColor = incorrectColor;
+            }
+          } else if (kind == "secondDeclension"){
+            if (gender[random] == "masculine"){
+              if (i == 0){
+                if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              } else {
+                if (nounEntryRoot + nounEndingsMasculine[i] == input[i] || nounEntryRoot + nounEndingsMasculine[i] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              }
+            } else if (gender[random] == "neuter") {
+              if (i < 2){
+                if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              } else {
+                if (nounEntryRoot + nounEndingsNeuter[i] == input[i] || nounEntryRoot + nounEndingsNeuter[i] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              }
+            }
+          } else if (kind == "thirdDeclension"){
+            if (gender[random] == "masculine" || gender[random] == "feminine"){
+              if (i == 0){
+                if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              } else {
+                if (nounEntryRoot + nounEndingsMasculine[i] == input[i] || nounEntryRoot + nounEndingsMasculine[i] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              }
+            } else if (gender[random] == "neuter") {
+              if (i < 2){
+                if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              } else {
+                if (nounEntryRoot + nounEndingsNeuter[i] == input[i] || nounEntryRoot + nounEndingsNeuter[i] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              }
+            }
+          } else if (kind == "fourthDeclension") {
+            if (gender[random] == "masculine") {
               if (nounEntryRoot + nounEndingsMasculine[i] == input[i] || nounEntryRoot + nounEndingsMasculine[i] + " " == input[i]) {
                 inputElement.style.backgroundColor = correctColor;
               } else {
                 inputElement.style.backgroundColor = incorrectColor;
               }
-            }
-          } else if (gender[i] == "neuter") {
-            if (i < 2){
-              if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
-            } else {
+            } else if (gender[random] == "neuter"){
               if (nounEntryRoot + nounEndingsNeuter[i] == input[i] || nounEntryRoot + nounEndingsNeuter[i] + " " == input[i]) {
                 inputElement.style.backgroundColor = correctColor;
               } else {
                 inputElement.style.backgroundColor = incorrectColor;
               }
             }
-          }
-        } else if (kind == "thirdDeclension"){
-          if (gender[random] == "masculine" || gender[random] == "feminine"){
-            if (i == 0){
-              if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
-            } else {
-              if (nounEntryRoot + nounEndingsMasculine[i] == input[i] || nounEntryRoot + nounEndingsMasculine[i] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
-            }
-          } else if (gender[i] == "neuter") {
-            if (i < 2){
-              if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
-            } else {
-              if (nounEntryRoot + nounEndingsNeuter[i] == input[i] || nounEntryRoot + nounEndingsNeuter[i] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
-            }
-          }
-        } else if (kind == "fourthDeclension") {
-          if (gender[random] == "masculine") {
-            if (nounEntryRoot + nounEndingsMasculine[i] == input[i] || nounEntryRoot + nounEndingsMasculine[i] + " " == input[i]) {
-              inputElement.style.backgroundColor = correctColor;
-            } else {
-              inputElement.style.backgroundColor = incorrectColor;
-            }
-          } else if (gender[random] == "neuter"){
-            if (nounEntryRoot + nounEndingsNeuter[i] == input[i] || nounEntryRoot + nounEndingsNeuter[i] + " " == input[i]) {
-              inputElement.style.backgroundColor = correctColor;
-            } else {
-              inputElement.style.backgroundColor = incorrectColor;
-            }
-          }
-        } else if (kind == "fifthDeclension"){
+          } else if (kind == "fifthDeclension"){
           if (nounEntryRoot + nounEndingsFeminine[i] == input[i]) {
             inputElement.style.backgroundColor = correctColor;
           } else {
             inputElement.style.backgroundColor = incorrectColor;
           }
         }
+        }
+
+// --------------
+
+      //fill in the handwriting charts
+      var handwritingFillIn = [];
+      if (kind == "firstDeclension") {
+        document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsFeminine[i];
+
+      } else if (kind == "secondDeclension"){
+        if (gender[random] == "masculine"){
+          if (i == 0){
+            document.getElementById(currentHandID).innerText = nounFirstEntry[random];
+          } else {
+            document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsMasculine[i];
+          }
+        } else if (gender[random] == "neuter") {
+          if (i < 2){
+            document.getElementById(currentHandID).innerText = nounFirstEntry[random];
+          } else {
+            document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsNeuter[i];
+          }
+        }
+      } else if (kind == "thirdDeclension"){
+        if (gender[random] == "masculine" || gender[random] == "feminine"){
+          if (i == 0) {
+            document.getElementById(currentHandID).innerText = nounFirstEntry[random];
+          } else {
+            document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsMasculine[i];
+          }
+        } else if (gender[random] == "neuter") {
+          if (i < 2){
+            document.getElementById(currentHandID).innerText = nounFirstEntry[random];
+          } else {
+            document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsNeuter[i] == input[i];
+          }
+        }
+      } else if (kind == "fourthDeclension") {
+        if (gender[random] == "masculine") {
+          document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsMasculine[i];
+        } else if (gender[random] == "neuter"){
+          document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsNeuter[i];
+        }
+      } else if (kind == "fifthDeclension"){
+        document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsFeminine[i];
+    }
+
       }
       break;
     case "verbChart":
@@ -444,8 +494,11 @@ function refreshChart(){
       length = 10;
       for (var i = 0; i < length; i++) {
         var currentID = id + i;
+        var currentHandID = id + "Hand" + i;
         inputElement = document.getElementById(currentID);
         inputElement.style.backgroundColor = blankColor;
+        document.getElementById(currentHandID).innerText = "";
+        document.getElementById(currentID).value = "";
       }
 
       if (kind == "firstDeclension"){
@@ -464,6 +517,10 @@ function refreshChart(){
       }
       random = Math.floor(Math.random() * nounEntry.length);
       document.getElementById("instructions").innerHTML = "Decline: " + nounEntry[random];
+      inputElement = document.getElementById(currentID);
+      inputElement.style.backgroundColor = blankColor;
+      document.getElementById(currentHandID).innerText = "";
+      document.getElementById(currentID).value = "";
       break;
 //verb ---------
     case "verbChart":
