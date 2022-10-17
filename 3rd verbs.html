@@ -55,11 +55,12 @@
 <br>
 <br>
 <h1>Third Conjugation </h1>
+  <button class="submit-button" id="handwritingToggleButton" data-kind="thirdConjugationVerbs" onclick="getId(this); handwritingToggle(this);" type="button">Handwriting Mode</button>
 <br>
 <h3 id="instructions">Conjugate: </h3>
 <br>
 
-<div class="grid-container">
+<div class="grid-container" id="chart">
     <div class="verb-chart" mood="active">
 
       <table class="chart">
@@ -252,12 +253,58 @@
         </tr>
       </table>
     </div>
+</div>
+
+<div id="handwritingChart" style="display: none">
+  <div class="verb-chart" mood="active">
+
+    <table class="chart">
+      <tr> <th class="table-header" colspan="4"> active imperfect </th> </tr>
+      <th>
+        <td class="table-header">past</td>
+        <td class="table-header">pres</td>
+        <td class="table-header">fut</td>
+      </th>
+      <tr>
+        <th> 1st </th> <!--1st past sg -->
+        <td id="verbChartactImpHand6" type="text"/> </td> <!-- past -->
+        <td id="verbChartactImpHand0" type="text"/> </td> <!-- pres -->
+        <td id="verbChartactImpHand12" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 2nd </th>
+        <td id="verbChartactImpHand7" type="text"/> </td> <!-- past -->
+        <td id="verbChartactImpHand1" type="text"/> </td> <!-- pres -->
+        <td id="verbChartactImpHand13" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 3rd </th>
+        <td id="verbChartactImpHand8" type="text"/> </td> <!-- past -->
+        <td id="verbChartactImpHand2" type="text"/> </td> <!-- pres -->
+        <td id="verbChartactImpHand14" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr> <td> <hr> </td> </tr>
+      <tr>
+        <th> 1st </th>
+        <td id="verbChartactImpHand9" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartactImpHand3" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartactImpHand15" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 2nd </th>
+        <td id="verbChartactImpHand10" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartactImpHand4" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartactImpHand16" type="text"/> </td> <!-- fut -->
+      </tr>
+      <tr>
+        <th> 3rd </th>
+        <td id="verbChartactImpHand11" type="text"/> </td> <!-- past pl -->
+        <td id="verbChartactImpHand5" type="text"/> </td> <!-- pres pl-->
+        <td id="verbChartactImpHand17" type="text"/> </td> <!-- fut -->
+      </tr>
+    </table>
   </div>
 
-<<<<<<< Updated upstream
-  <button class="submit-button" id="verbChart" data-kind="thirdConjugationVerbs" onclick="getId(this); refreshChart(this);" type="button">New Entry</button>
-  <input class="submit-button" id="verbChart" data-kind="thirdConjugationVerbs" onclick="getId(this); submitChart(this);" type="submit"/>
-=======
   <div class="verb-chart" mood="active">
     <table class="chart">
       <tr> <th class="table-header" colspan="4"> active perfect </th> </tr>
@@ -406,10 +453,10 @@
 
   <button class="submit-button" id="verbChart" data-kind="thirdConjugationVerbs" data-chart="verbChart" onclick="getId(this); refreshChart(this);" type="button">New Entry</button>
   <button class="submit-button" id="submit" data-kind="thirdConjugationVerbs" data-chart="verbChart" onclick="getId(this); submitChart(this);" type="button">Submit</button>
->>>>>>> Stashed changes
 
     <!-- ////////////////////////////////////////////////////////////////// -->
     <script src = "charts.js"> </script>
+    <script src = "chartModes.js"> </script>
     <script src = "navigation.js"> </script>
 </body>
     </html>
