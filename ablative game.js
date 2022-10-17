@@ -10,8 +10,11 @@ var answer;
 
 function newSentence() {
 
+<<<<<<< Updated upstream
 document.getElementById("response").style.display = "none";
 
+=======
+>>>>>>> Stashed changes
 random = randomNum(kindList.length);
 
 // assigns the number to a kind of ablative to make my life easier
@@ -113,10 +116,17 @@ function submit() {
       answer = kindList[i];
       alert("the user's inputted answer is: " + answer);
       if (answer == kindList[random]){
+<<<<<<< Updated upstream
         document.getElementById("response").innerText = "Correct!";
         // alert("correct!");
       } else {
         document.getElementById("response").innerText = "Incorrect :(";
+=======
+        document.getElementById("response").value = "Correct!";
+        // alert("correct!");
+      } else {
+        document.getElementById("response").value = "Incorrect :(";
+>>>>>>> Stashed changes
         // alert("incorrect :[");
       }
     }
