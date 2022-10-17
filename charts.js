@@ -1,4 +1,3 @@
-// single chart pronouns
 var id;
 var kind;
 
@@ -9,8 +8,6 @@ var quiQuaeQuodEntry = [];
 
 
 // noun variables
-
-
 var nounEntry = [];
 var nounFirstEntry = [];
 var nounSecondEntry = [];
@@ -55,8 +52,9 @@ var input = [];
 var answer = [];
 var length;
 
+// gets the kind of page the button belongs to; ex: kind="verbChart"
 function getId(btn) {
-  id = btn.id;
+  id = btn.dataset.chart;
   var article = document.getElementById(id);
   kind = btn.dataset.kind;
 }
@@ -73,6 +71,8 @@ function submitChart(){
       if (kind == "quiQuaeQuod") {
         quiQuaeQuodEntry = ["qui", "quem", "quo", "cui", "cuius", "qui", "quos", "quibus", "quibus", "quorum", "quae", "quam", "qua", "cui", "cuius", "qua", "quas", "quibus", "quibus", "quarum", "quod", "quod", "qui", "cui", "cuius", "quae", "quae", "quibus", "quibus", "quorum"];
       }
+
+      //make this more verstitile
 
       for (var i = 0; i < length; i++) {
         var currentID = id + i;
@@ -91,15 +91,15 @@ function submitChart(){
     case "personalChart":
     length = 50;
     input = [];
-    personalEntry = ["is", "eum", "eo", "ei", "eius", "ei/ii", "eos", "eis", "eis", "eorum", "ea", "eam", "ea", "ei", "eius", "eae", "eas", "eibus" "id", "id", "eo", "ei", "eius", "ea", "ea", "eis", "eis", "earum", "quae", "quae", "quibus", "quibus", "quorum"];
+    personalEntry = ["is", "eum", "eo", "ei", "eius", "ei/ii", "eos", "eis", "eis", "eorum", "ea", "eam", "ea", "ei", "eius", "eae", "eas", "eis", "eis", "earum", "id", "id", "eo", "ei", "eius", "ea", "ea", "eis", "eis", "earum", "quae", "quae", "quibus", "quibus", "quorum"];
 
     for (var i = 0; i < length; i++) {
       var currentID = id + i;
       var inputElement = document.getElementById(currentID);
       input.push(document.getElementById(currentID).value);
 
-      if (kind == "quiQuaeQuod"){
-        if (quiQuaeQuodEntry[i] == input[i]) {
+      if (kind == "personal"){
+        if (personal[i] == input[i]) {
           inputElement.style.backgroundColor = correctColor;
         } else {
           inputElement.style.backgroundColor = incorrectColor;
@@ -107,7 +107,6 @@ function submitChart(){
       }
     }
       break;
-
     case "oneChart":
       length = 10;
       input = [];
@@ -148,94 +147,144 @@ function submitChart(){
         var currentID = id + i;
         var inputElement = document.getElementById(currentID);
         input.push(document.getElementById(currentID).value);
+        var currentHandID = id + "Hand" + i;
 
-        if (kind == "firstDeclension") {
-          if (nounEntryRoot + nounEndingsFeminine[i] == input[i]) {
-            inputElement.style.backgroundColor = correctColor;
-          } else {
-            inputElement.style.backgroundColor = incorrectColor;
-          }
-        } else if (kind == "secondDeclension"){
-          if (gender[random] == "masculine"){
-            if (i == 0){
-              if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
+        // checks the typing chart, but only if thats the mode the user has selected
+      if (document.getElementById("submit").innerText == "Submit") { //checks if typing mode is on based on if the submit button says "submit" or "show chart"
+          if (kind == "firstDeclension") {
+            if (nounEntryRoot + nounEndingsFeminine[i] == input[i]) {
+              inputElement.style.backgroundColor = correctColor;
             } else {
+              inputElement.style.backgroundColor = incorrectColor;
+            }
+          } else if (kind == "secondDeclension"){
+            if (gender[random] == "masculine"){
+              if (i == 0){
+                if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              } else {
+                if (nounEntryRoot + nounEndingsMasculine[i] == input[i] || nounEntryRoot + nounEndingsMasculine[i] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              }
+            } else if (gender[random] == "neuter") {
+              if (i < 2){
+                if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              } else {
+                if (nounEntryRoot + nounEndingsNeuter[i] == input[i] || nounEntryRoot + nounEndingsNeuter[i] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              }
+            }
+          } else if (kind == "thirdDeclension"){
+            if (gender[random] == "masculine" || gender[random] == "feminine"){
+              if (i == 0){
+                if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              } else {
+                if (nounEntryRoot + nounEndingsMasculine[i] == input[i] || nounEntryRoot + nounEndingsMasculine[i] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              }
+            } else if (gender[random] == "neuter") {
+              if (i < 2){
+                if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              } else {
+                if (nounEntryRoot + nounEndingsNeuter[i] == input[i] || nounEntryRoot + nounEndingsNeuter[i] + " " == input[i]) {
+                  inputElement.style.backgroundColor = correctColor;
+                } else {
+                  inputElement.style.backgroundColor = incorrectColor;
+                }
+              }
+            }
+          } else if (kind == "fourthDeclension") {
+            if (gender[random] == "masculine") {
               if (nounEntryRoot + nounEndingsMasculine[i] == input[i] || nounEntryRoot + nounEndingsMasculine[i] + " " == input[i]) {
                 inputElement.style.backgroundColor = correctColor;
               } else {
                 inputElement.style.backgroundColor = incorrectColor;
               }
-            }
-          } else if (gender[i] == "neuter") {
-            if (i < 2){
-              if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
-            } else {
+            } else if (gender[random] == "neuter"){
               if (nounEntryRoot + nounEndingsNeuter[i] == input[i] || nounEntryRoot + nounEndingsNeuter[i] + " " == input[i]) {
                 inputElement.style.backgroundColor = correctColor;
               } else {
                 inputElement.style.backgroundColor = incorrectColor;
               }
             }
-          }
-        } else if (kind == "thirdDeclension"){
-          if (gender[random] == "masculine" || gender[random] == "feminine"){
-            if (i == 0){
-              if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
-            } else {
-              if (nounEntryRoot + nounEndingsMasculine[i] == input[i] || nounEntryRoot + nounEndingsMasculine[i] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
-            }
-          } else if (gender[i] == "neuter") {
-            if (i < 2){
-              if (nounFirstEntry[random] == input[i] || nounFirstEntry[random] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
-            } else {
-              if (nounEntryRoot + nounEndingsNeuter[i] == input[i] || nounEntryRoot + nounEndingsNeuter[i] + " " == input[i]) {
-                inputElement.style.backgroundColor = correctColor;
-              } else {
-                inputElement.style.backgroundColor = incorrectColor;
-              }
-            }
-          }
-        } else if (kind == "fourthDeclension") {
-          if (gender[random] == "masculine") {
-            if (nounEntryRoot + nounEndingsMasculine[i] == input[i] || nounEntryRoot + nounEndingsMasculine[i] + " " == input[i]) {
-              inputElement.style.backgroundColor = correctColor;
-            } else {
-              inputElement.style.backgroundColor = incorrectColor;
-            }
-          } else if (gender[random] == "neuter"){
-            if (nounEntryRoot + nounEndingsNeuter[i] == input[i] || nounEntryRoot + nounEndingsNeuter[i] + " " == input[i]) {
-              inputElement.style.backgroundColor = correctColor;
-            } else {
-              inputElement.style.backgroundColor = incorrectColor;
-            }
-          }
-        } else if (kind == "fifthDeclension"){
+          } else if (kind == "fifthDeclension"){
           if (nounEntryRoot + nounEndingsFeminine[i] == input[i]) {
             inputElement.style.backgroundColor = correctColor;
           } else {
             inputElement.style.backgroundColor = incorrectColor;
           }
         }
+        }
+
+// --------------
+
+      //fill in the handwriting charts
+      var handwritingFillIn = [];
+      if (kind == "firstDeclension") {
+        document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsFeminine[i];
+
+      } else if (kind == "secondDeclension"){
+        if (gender[random] == "masculine"){
+          if (i == 0){
+            document.getElementById(currentHandID).innerText = nounFirstEntry[random];
+          } else {
+            document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsMasculine[i];
+          }
+        } else if (gender[random] == "neuter") {
+          if (i < 2){
+            document.getElementById(currentHandID).innerText = nounFirstEntry[random];
+          } else {
+            document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsNeuter[i];
+          }
+        }
+      } else if (kind == "thirdDeclension"){
+        if (gender[random] == "masculine" || gender[random] == "feminine"){
+          if (i == 0) {
+            document.getElementById(currentHandID).innerText = nounFirstEntry[random];
+          } else {
+            document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsMasculine[i];
+          }
+        } else if (gender[random] == "neuter") {
+          if (i < 2){
+            document.getElementById(currentHandID).innerText = nounFirstEntry[random];
+          } else {
+            document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsNeuter[i] == input[i];
+          }
+        }
+      } else if (kind == "fourthDeclension") {
+        if (gender[random] == "masculine") {
+          document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsMasculine[i];
+        } else if (gender[random] == "neuter"){
+          document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsNeuter[i];
+        }
+      } else if (kind == "fifthDeclension"){
+        document.getElementById(currentHandID).innerText = nounEntryRoot + nounEndingsFeminine[i];
+    }
+
       }
       break;
     case "verbChart":
@@ -293,91 +342,130 @@ function submitChart(){
             var currentID = id + currentAspectAndVoice + h;
             var inputElement = document.getElementById(currentID);
             input.push(document.getElementById(currentID).value);
+            var currentHandID = id + currentAspectAndVoice + "Hand" + h;
 
-            if (i == 0){ // creating answer list for first chart, the active imperfects
-               if (h == 0){
-                 if (firstEntry[random] == input[h] || firstEntry[random] + " " == input[h]){
-                   inputElement.style.backgroundColor = correctColor;
+            // checks the typing chart, but only if thats the mode the user has selected
+            if (document.getElementById("submit").innerText == "Submit") { //checks if typing mode is on based on if the submit button says "submit" or "show chart"
+              if (i == 0){ // creating answer list for first chart, the active imperfects
+                 if (h == 0){
+                   if (firstEntry[random] == input[h] || firstEntry[random] + " " == input[h]){
+                     inputElement.style.backgroundColor = correctColor;
 
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
                  } else {
-                   inputElement.style.backgroundColor = incorrectColor;
+                   if (secondEntryRoot + endingsActImps[h] == input[h] || secondEntryRoot + endingsActImps[h] + " " == input[h]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 }
+
+               } else if (i == 1){
+                 if (h == 0) {
+                   if (thirdEntryRandom == input[h + 18]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 } else {
+                   if (thirdEntryRoot + endingsActPerf[h] == input[h + 18] || thirdEntryRoot + endingsActPerf[h] + " " == input[h + 18]){
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 }
+               } else if (i == 2) {
+                 if (h == 0) {
+                   if (firstEntry[random] + "r" == input[h + 36] || firstEntry[random] + "r" + " " == input[h + 36]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 } else if (h < 18) {
+                   if (secondEntryRoot + endingsPassImp[h] == input[h + 36] || secondEntryRoot + endingsPassImp[h] + " " == input[h + 36]){
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
                  }
                } else {
-                 if (secondEntryRoot + endingsActImps[h] == input[h] || secondEntryRoot + endingsActImps[h] + " " == input[h]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
+                 if (h < 3) {
+                   if (fourthEntryRoot + "us " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 } else if (h < 6) {
+                   if (fourthEntryRoot + "i " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                 }
+                 } else if (h < 9) {
+                   if (fourthEntryRoot + "us " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 } else if (h < 12) {
+                   if (fourthEntryRoot + "i " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                 }
+                 } else if (h < 15) {
+                   if (fourthEntryRoot + "us " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
+                 } else if (h < 18) {
+                   if (fourthEntryRoot + "i " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
+                     inputElement.style.backgroundColor = correctColor;
+                   } else {
+                     inputElement.style.backgroundColor = incorrectColor;
+                   }
                  }
                }
+            }
 
-             } else if (i == 1){
-               if (h == 0) {
-                 if (thirdEntryRandom == input[h + 18]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               } else {
-                 if (thirdEntryRoot + endingsActPerf[h] == input[h + 18] || thirdEntryRoot + endingsActPerf[h] + " " == input[h + 18]){
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               }
-             } else if (i == 2) {
-               if (h == 0) {
-                 if (firstEntry[random] + "r" == input[h + 36] || firstEntry[random] + "r" + " " == input[h + 36]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               } else if (h < 18) {
-                 if (secondEntryRoot + endingsPassImp[h] == input[h + 36] || secondEntryRoot + endingsPassImp[h] + " " == input[h + 36]){
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               }
-             } else {
-               if (h < 3) {
-                 if (fourthEntryRoot + "us " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               } else if (h < 6) {
-                 if (fourthEntryRoot + "i " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-               }
-               } else if (h < 9) {
-                 if (fourthEntryRoot + "us " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               } else if (h < 12) {
-                 if (fourthEntryRoot + "i " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-               }
-               } else if (h < 15) {
-                 if (fourthEntryRoot + "us " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "um " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "us " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "um " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               } else if (h < 18) {
-                 if (fourthEntryRoot + "i " + endingsPassPerf[h] == input [h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] == input[h + 54] ||  fourthEntryRoot + "a " + endingsPassPerf[h] == input[h + 54] || fourthEntryRoot + "i " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "ae " + endingsPassPerf[h] + " " == input[h + 54] || fourthEntryRoot + "a " + endingsPassPerf[h] + " " == input[h + 54]) {
-                   inputElement.style.backgroundColor = correctColor;
-                 } else {
-                   inputElement.style.backgroundColor = incorrectColor;
-                 }
-               }
-             }
-
+             // fill in the handwriting chart
+             var handwritingFillIn = [];
+             if (i == 0){
+                if (h == 0){
+                  document.getElementById(currentHandID).innerText = firstEntry[random];
+                } else {
+                  document.getElementById(currentHandID).innerText = secondEntryRoot + endingsActImps[h];
+                }
+              } else if (i == 1) {
+                  if (h == 0) {
+                  document.getElementById(currentHandID).innerText = thirdEntryRandom;
+                  } else {
+                  document.getElementById(currentHandID).innerText = thirdEntryRoot + endingsActPerf[h];
+                  }
+              } else if (i == 2) {
+                if (h == 0) {
+                  document.getElementById(currentHandID).innerText = firstEntry[random] + "r";
+                } else if (h < 18) {
+                  document.getElementById(currentHandID).innerText = secondEntryRoot + endingsPassImp[h];
+                }
+              } else {
+                  if (h < 3) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "us, a, um " + endingsPassPerf[h];
+                  } else if (h < 6) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "i, ae, a " + endingsPassPerf[h];
+                  } else if (h < 9) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "us, a, um " + endingsPassPerf[h];
+                  } else if (h < 12) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "i, ae, a " + endingsPassPerf[h];
+                  } else if (h < 15) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "us, a, um " + endingsPassPerf[h];
+                  } else if (h < 18) {
+                    document.getElementById(currentHandID).innerText = fourthEntryRoot + "i, ae, a " + endingsPassPerf[h];
+                  }
+                }
           }
       }
       break;
@@ -406,8 +494,11 @@ function refreshChart(){
       length = 10;
       for (var i = 0; i < length; i++) {
         var currentID = id + i;
+        var currentHandID = id + "Hand" + i;
         inputElement = document.getElementById(currentID);
         inputElement.style.backgroundColor = blankColor;
+        document.getElementById(currentHandID).innerText = "";
+        document.getElementById(currentID).value = "";
       }
 
       if (kind == "firstDeclension"){
@@ -426,6 +517,10 @@ function refreshChart(){
       }
       random = Math.floor(Math.random() * nounEntry.length);
       document.getElementById("instructions").innerHTML = "Decline: " + nounEntry[random];
+      inputElement = document.getElementById(currentID);
+      inputElement.style.backgroundColor = blankColor;
+      document.getElementById(currentHandID).innerText = "";
+      document.getElementById(currentID).value = "";
       break;
 //verb ---------
     case "verbChart":
