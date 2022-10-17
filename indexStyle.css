@@ -148,3 +148,7 @@ margin-top: 1cm;
 
 
 /* ..body......................... */
+
+#handwritingChart {
+	display: none;
+}

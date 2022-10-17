@@ -7,7 +7,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="author" content="Abril Insaurralde">
     <meta name="description:" content="This website helps Latin students study their grammar and culture">
 
     <link rel="stylesheet" href="indexStyle.css">
@@ -54,13 +53,14 @@
 
 <br>
 <br>
-<h1>First Conjugation </h1>
+<h1>First Declension </h1>
+  <button class="submit-button" id="handwritingToggleButton" data-kind="firstDeclension" onclick="getId(this); handwritingToggle(this);" type="button">Handwriting Mode</button>
 <br>
-<h3 id="instructions">Conjugate: </h3>
+<h3 id="instructions">Decline: </h3>
 <br>
 
-<div ID="one-chart">
-  <table class="chart">
+<div class="one-chart" id="chart">
+  <table>
     <tr>
       <th> nom </th> <!-- input:--> <td> <input id="oneChart0" type="text"/> </td>
     </tr>
@@ -95,12 +95,51 @@
   </table>
 </div>
 
+<div id="handwritingChart" style="display: none">
+  <div class="one-chart">
+    <table class="chart">
+      <tr>
+        <th> nom </th> <td id="oneChart0"/> </td>
+      </tr>
+      <tr>
+        <th> acc </th> <td id="oneChart1"/> </td>
+      </tr>
+      <tr>
+        <th> abl </th> <td id="oneChart2"/> </td>
+      </tr>
+      <tr>
+        <th> dat </th> <td id="oneChart3"/> </td>
+      </tr>
+      <tr>
+        <th> gen </th> <td id="oneChart4"/> </td>
+      </tr>
+      <tr> <td> <hr> </td> </tr>
+      <tr>
+        <th> nom </th> <td id="oneChart5"/> </td>
+      </tr>
+      <tr>
+        <th> acc </th> <td id="oneChart6"/> </td>
+      </tr>
+      <tr>
+        <th> abl </th> <td id="oneChart7"/> </td>
+      </tr>
+      <tr>
+        <th> dat </th> <td id="oneChart8"/> </td>
+      </tr>
+      <tr>
+        <th> gen </th> <td id="oneChart9"/> </td>
+      </tr>
+    </table>
+  </div>
+</div>
 
-  <button class="submit-button" id="oneChart" data-kind="firstDeclension" onclick="getId(this); refreshChart(this);" type="button">New Entry</button>
-  <input class="submit-button" id="oneChart" data-kind="firstDeclension" onclick="getId(this); submitChart(this);" type="submit"/>
+
+  <button class="submit-button" id="oneChart" data-kind="firstDeclension" data-chart="oneChart" onclick="getId(this); refreshChart(this);" type="button">New Entry</button>
+  <button class="submit-button" id="submit" data-kind="firstDeclension" data-chart="oneChart" onclick="getId(this); submitChart(this);" type="submit">Submit</button>
 
     <!-- ////////////////////////////////////////////////////////////////// -->
     <script src = "charts.js"> </script>
+    <script src = "chartModes.js"> </script>
     <script src = "navigation.js"> </script>
     </body>
     </html>
